@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <style>
+      body {
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="100px" height="100px"></canvas>
+    <script type="text/javascript">
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      var time = 10;
+
+      function updateCanvas(beginAngle) {
+        ctx.clearRect(0, 0, 100, 100);
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        // ctx.strokeStyle = "#7e7e7e";
+        ctx.strokeStyle = "#fff";
+        ctx.arc(50, 50, 46, -0.5 * Math.PI, 1.5 * Math.PI);
+        4;
+
+        ctx.stroke();
+        ctx.closePath();
+
+        // ctx.save();
+
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.arc(50, 50, 46, beginAngle, 1.5 * Math.PI);
+        ctx.stroke();
+
+        // ctx.restore();
+      }
+
+      let step = (2 * Math.PI) / ((time * 1000) / 16.7);
+      let beginAngle = -0.5 * Math.PI;
+
+      var timer = setInterval(() => {
+        beginAngle = beginAngle + step;
+        if (beginAngle > 1.5 * Math.PI) {
+          clearInterval(timer);
+        } else {
+          updateCanvas(beginAngle);
+        }
+      }, 16.7);
+    </script>
+  </body>
+</html>
+
+time / 1000 * 60 * x = 2Math.PI x = 2Math.PI /(time / 1000 * 60) = 2Math.PI/time *1000 /60
