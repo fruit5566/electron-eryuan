@@ -9,8 +9,8 @@ yarn install
 yarn electron:serve
 ```
 
-### canvas 倒计时、数字键盘 eg.
+### 框架 canvas 倒计时、数字键盘 eg.
 
-![](./src/assets/1.png)
+![](https://cdn.zhufu250.com/eryuan1.png)
 
-![](./src/assets/2.png)
+![](https://cdn.zhufu250.com/eryuan2.png)
