@@ -1,14 +1,13 @@
-"use strict";
-
 import { app, protocol, BrowserWindow, Menu } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS_DEVTOOLS } from "electron-devtools-installer";
+import { opcTest } from "./serve/main";
+const { ipcMain } = require("electron");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
-
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }]);
 
@@ -23,7 +22,9 @@ function createWindow() {
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      // nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: true,
+      preload: "./preload.js"
     },
     icon: `${__static}/app.ico`
   });
@@ -89,3 +90,10 @@ if (isDevelopment) {
     });
   }
 }
+
+ipcMain.handle("perform-action", (event, args) => {
+  // ... do something on behalf of the renderer ...
+  console.log("ipc action");
+  console.log(args);
+  opcTest();
+});

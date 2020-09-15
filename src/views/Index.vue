@@ -150,6 +150,7 @@ import Circle1 from "../components/Circle1.vue";
 import SetValue from "../components/SetValue.vue";
 import Recentdata from "../components/Recentdata.vue";
 import KeyBoard from "../components/KeyBoard.vue";
+const { ipcRenderer } = require("electron");
 
 export default {
   name: "App",
@@ -172,6 +173,9 @@ export default {
   methods: {
     handleSet() {
       this.showModel = true;
+      console.log("click");
+      ipcRenderer.invoke("perform-action", "sos");
+      // console.log(ipcRenderer);
     },
     handleInput(data) {
       this.setObj = data;
