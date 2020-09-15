@@ -1,7 +1,7 @@
 <template>
-  <div class="set">
+  <div class="set flex-column">
     <div class="value">{{ rpm }}</div>
-    <div class="label">rpm</div>
+    <p class="label">rpm</p>
     <div class="value">
       <span>{{ time }}</span>
       <span class="label">分钟</span>
@@ -33,7 +33,9 @@ export default {
   cursor: pointer;
   .value {
     line-height: 1;
-    text-align: right;
+    // text-align: right;
+    justify-content: flex-end;
+    align-items: flex-end;
     font-size: 16px;
     .label {
       font-size: 8px;

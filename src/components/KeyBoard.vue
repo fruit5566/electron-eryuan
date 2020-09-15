@@ -1,48 +1,50 @@
 <template>
-  <div class="keyboard-container">
-    <div class="title">
-      <span>均衡参数设定</span>
-      <span class="close" @click="handleClose">关闭</span>
-    </div>
-    <div class="content">
-      <div class="left">
-        <div class="input">
-          <div class="item">
-            <div class="label">速度</div>
-            <div class="value" @click="changeFlag('speed')">{{ speed }}</div>
-          </div>
-          <div class="item">
-            <div class="label">时间(mins)</div>
-            <div class="value" @click="changeFlag('time')">{{ time }}</div>
-          </div>
-        </div>
-        <div class="keyboard" @click.stop="handleKeyPress">
-          <div class="key-row">
-            <div class="key-cell" data-num="1">1</div>
-            <div class="key-cell" data-num="2">2</div>
-            <div class="key-cell" data-num="3">3</div>
-          </div>
-          <div class="key-row">
-            <div class="key-cell" data-num="4">4</div>
-            <div class="key-cell" data-num="5">5</div>
-            <div class="key-cell" data-num="6">6</div>
-          </div>
-          <div class="key-row">
-            <div class="key-cell" data-num="7">7</div>
-            <div class="key-cell" data-num="8">8</div>
-            <div class="key-cell" data-num="9">9</div>
-          </div>
-          <div class="key-row">
-            <div class="key-cell" data-num=".">.</div>
-            <div class="key-cell" data-num="0">0</div>
-            <div class="key-cell" data-num="back">back</div>
-          </div>
-        </div>
+  <div class="module">
+    <div class="keyboard-container flex-column">
+      <div class="title">
+        <span>均衡参数设定</span>
+        <span class="close" @click="handleClose">关闭</span>
       </div>
-      <div class="right">
-        <div style="font-size: 12px">当前温度(℃)</div>
-        <div class="temperature">14</div>
-        <div class="countdown"><Countdown :width="80" :height="80" initAngle="0"> </Countdown></div>
+      <div class="content">
+        <div class="left flex-column">
+          <div class="input">
+            <div class="item flex-column">
+              <div class="label">速度</div>
+              <div class="value" @click="changeFlag('speed')">{{ speed }}</div>
+            </div>
+            <div class="item flex-column">
+              <div class="label">时间(mins)</div>
+              <div class="value" @click="changeFlag('time')">{{ time }}</div>
+            </div>
+          </div>
+          <div class="keyboard flex-column" @click.stop="handleKeyPress">
+            <div class="key-row">
+              <div class="key-cell" data-num="1">1</div>
+              <div class="key-cell" data-num="2">2</div>
+              <div class="key-cell" data-num="3">3</div>
+            </div>
+            <div class="key-row">
+              <div class="key-cell" data-num="4">4</div>
+              <div class="key-cell" data-num="5">5</div>
+              <div class="key-cell" data-num="6">6</div>
+            </div>
+            <div class="key-row">
+              <div class="key-cell" data-num="7">7</div>
+              <div class="key-cell" data-num="8">8</div>
+              <div class="key-cell" data-num="9">9</div>
+            </div>
+            <div class="key-row">
+              <div class="key-cell" data-num=".">.</div>
+              <div class="key-cell" data-num="0">0</div>
+              <div class="key-cell" data-num="back">back</div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div style="font-size: 12px">当前温度(℃)</div>
+          <div class="temperature">14</div>
+          <div class="countdown"><Countdown :width="80" :height="80" initAngle="0"> </Countdown></div>
+        </div>
       </div>
     </div>
   </div>
@@ -203,5 +205,14 @@ export default {
     border-radius: 2px;
     background: #f59a23;
   }
+}
+.module {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #314444, $alpha: 0.4);
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>

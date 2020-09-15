@@ -1,8 +1,11 @@
 <template>
-  <div class="index">
-    <div class="model" v-if="showModel">
-      <KeyBoard class="keyboard" :initSpeed="setObj.speed" :initTime="setObj.time" @input="handleInput"></KeyBoard>
-    </div>
+  <div class="index border">
+    <transition name="fade">
+      <div class="model" v-if="showModel">
+        <KeyBoard class="keyboard" :initSpeed="setObj.speed" :initTime="setObj.time" @input="handleInput"></KeyBoard>
+      </div>
+    </transition>
+
     <div class="left">
       <div class="heder ">
         <div class="line"></div>
@@ -40,7 +43,7 @@
         <Circle1 msg="1" width="20" height="20" color="#fff" borderWidth="1.5"></Circle1>
         <span style="margin-left: 10px">混制</span>
       </div>
-      <div class="content ">
+      <div class="content flex-column">
         <div class="row">
           <div class="title"></div>
           <div class="title">设定值</div>
@@ -172,7 +175,7 @@ export default {
     },
     handleInput(data) {
       this.setObj = data;
-      console.log(data);
+      // console.log(data);
     }
   }
 };
@@ -273,7 +276,7 @@ export default {
     }
     .row {
       display: flex;
-      flex: 1;
+      // flex: 1;
       // margin-top: 12px;
       flex-direction: row;
       // justify-content: space-between;
