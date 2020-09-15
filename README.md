@@ -5,8 +5,9 @@
 ### Install
 
 ```
-yarn install
-yarn electron:serve
+// 删除 node_modules
+npm install
+npm electron:serve
 ```
 
 ### 框架 canvas 倒计时、数字键盘 eg.
